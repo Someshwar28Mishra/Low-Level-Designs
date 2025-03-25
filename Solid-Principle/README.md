@@ -41,7 +41,7 @@ Here we have separated the report generation and saving to file logic into two s
 +-----------------+       +-----------------+
 |     Report      |       |   ReportSaver   |
 +-----------------+       +-----------------+
-| +generateReport() |       | +saveToFile()   |
+|+generateReport()|       | +saveToFile()   |
 +-----------------+       +-----------------+
 ```
 
