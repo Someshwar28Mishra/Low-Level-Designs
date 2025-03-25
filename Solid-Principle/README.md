@@ -283,6 +283,18 @@ class LightBulb {
         System.out.println("LightBulb: Off");
     }
 }
+
+class Switch {
+    private LightBulb bulb;
+
+    public Switch(LightBulb bulb) {
+        this.bulb = bulb;
+    }
+
+    public void operate() {
+        bulb.turnOn();
+    }
+}
 ```
 
 #### Adhering to DIP
@@ -291,10 +303,35 @@ interface Switchable {
     void turnOn();
     void turnOff();
 }
+
+class LightBulb implements Switchable {
+    @Override
+    public void turnOn() {
+        System.out.println("LightBulb: On");
+    }
+
+    @Override
+    public void turnOff() {
+        System.out.println("LightBulb: Off");
+    }
+}
+
+class Switch {
+    private Switchable device;
+
+    public Switch(Switchable device) {
+        this.device = device;
+    }
+
+    public void operate() {
+        device.turnOn();
+    }
+}
+
 ```
 
 
-Using the `Switchable` interface ensures dependency inversion.
+
 
 
 ### Class Diagram:
