@@ -48,8 +48,9 @@ Here we have separated the report generation and saving to file logic into two s
 ---
 
 ## 2. Open/Closed Principle (OCP)
-Software entities (classes, modules, functions) should be open for extension but closed for modification.
-This means you should be able to add new functionality to an object without changing the existing code. Extend functionality by adding new code, not by changing existing code.
+Software entities (classes, modules, functions) should be open for extension but closed for modification. 
+This means you should be able to add new functionality to an object without changing the existing code.
+Extend functionality by adding new code, not by changing existing code.
 
 ### Example:
 #### Violation of OCP
@@ -65,11 +66,11 @@ class AreaCalculator {
     }
     
     public double calculateArea(Circle circle) {
-        return circle.radius * circle.radius * Math.PI;
+        return circle.radius * circle.radius * Math.PI; // Here we are modifying the existing code to add new functionality, which violates the OCP.
     }
 }
 ```
-Here we are modifying the existing code to add new functionality, which violates the OCP.
+
 
 #### Adhering to OCP
 ```java
@@ -117,7 +118,9 @@ Here we have created an interface `Shape` which has a method `calculateArea()` a
 ---
 
 ## 3. Liskov Substitution Principle (LSP)
-Objects of a superclass should be replaceable with objects of a subclass without affecting the correctness of the program. Any derived class should be able to substitute its base class without the consumer knowing it.
+Objects of a superclass should be replaceable with objects of a subclass without affecting the correctness of the program.
+Any derived class should be able to substitute its base class without the consumer knowing it.
+Child class should able to do what parent class can do.
 
 ### Example:
 #### Violation of LSP
@@ -177,7 +180,8 @@ class Ostrich implements Bird {
 ---
 
 ## 4. Interface Segregation Principle (ISP)
-Clients should not be forced to depend on interfaces they do not use. Large interfaces should be split into smaller, specific interfaces.
+Clients should not be forced to depend on interfaces they do not use.
+Bahut bda interface nhi banana chahiye, chote chote interfaces banane chahiye jo specific use case ke liye ho.
 
 ### Example:
 #### Violation of ISP
@@ -242,6 +246,9 @@ class RobotWorker implements Workable {
     }
 }
 ```
+
+We can see that small interface Workable and Eatable are created which are implemented by HumanWorker and only Workable is implemented by RobotWorker.
+
 ### Class Diagram:
 ```
 +-----------------+                                 +-----------------+
@@ -262,6 +269,7 @@ class RobotWorker implements Workable {
 
 ## 5. Dependency Inversion Principle (DIP)
 High-level modules should not depend on low-level modules. Both should depend on abstractions.
+Never depend on concrete classes, always depend on abstractions.
 
 ### Example:
 #### Violation of DIP
