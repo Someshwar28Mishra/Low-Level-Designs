@@ -427,7 +427,7 @@ When the temperature changes:
 ```
 
 ## *Java Implementation*
-java
+``` java
 // Observer Interface
 interface Observer {
     void update(float temperature);
@@ -510,7 +510,7 @@ public class WeatherMonitoringSystem {
     }
 }
 
-
+```
 ---
 
 ## *Output*
